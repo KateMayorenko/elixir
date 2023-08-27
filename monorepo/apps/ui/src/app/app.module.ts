@@ -8,6 +8,7 @@ import { SingleCardComponent } from './cards/single-card/single-card.component';
 import { SearchComponent } from './search/search.component';
 import { DetailedPageComponent } from './detailed-page/detailed-page.component';
 import {FormsModule} from "@angular/forms";
+import {StoreModule} from "@ngrx/store";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     RouterModule.forRoot(appRoutes, {initialNavigation: 'enabledBlocking'}),
     FormsModule,
+    StoreModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

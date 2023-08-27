@@ -1,5 +1,5 @@
-<div class="grid grid-rows-2 grid-flow-col gap-3">
-  <div class="rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl max-w-lg">
+<div class="grid py-4" *ngIf="detailsVisible">
+  <div class="rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
     <h3 class="text-slate-900 mt-5 text-base font-medium tracking-tight">{{elixir.name}}</h3>
     <p class="text-slate-500 mt-2 text-sm">
       Ingredient: {{elixir.ingredient}}

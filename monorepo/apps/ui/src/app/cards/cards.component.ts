@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataModel} from "@monorepo/data-models";
+import {showDetailsInSingleCard} from "./single-card/single-card.actions";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-cards',
@@ -42,10 +44,14 @@ export class CardsComponent implements OnInit{
 
   filteredItems: DataModel[] = [];
 
-  constructor() {
+  constructor(private store: Store) {
   }
 
 
   ngOnInit() {
+  }
+
+  onShowDivClick() {
+    this.store.dispatch(showDetailsInSingleCard());
   }
 }
