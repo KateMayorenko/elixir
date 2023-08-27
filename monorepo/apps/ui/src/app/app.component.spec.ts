@@ -18,7 +18,7 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('h1')?.textContent).toContain('Welcome ui');
   });
 
-  it(`should have as title 'ui'`, () => {
+  it(`should have as title 'api'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('ui');
