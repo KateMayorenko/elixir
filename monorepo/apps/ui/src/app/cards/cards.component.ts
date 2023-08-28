@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {DataModel} from "@monorepo/data-models";
-import {showDetailsInSingleCard} from "./single-card/single-card.actions";
-import {Store} from "@ngrx/store";
+import {select, Store} from "@ngrx/store";
+import {Observable} from "rxjs";
+import {CardsState} from "./store/cards.state";
 
 @Component({
   selector: 'app-cards',
@@ -10,7 +11,7 @@ import {Store} from "@ngrx/store";
 })
 export class CardsComponent implements OnInit{
 
-  elixirsList: DataModel[] = [{
+  initialElixirsList: DataModel[] = [{
     name: '1',
     ingredient: 'Sugar',
     effect: '',
@@ -42,16 +43,14 @@ export class CardsComponent implements OnInit{
     }
   ];
 
-  filteredItems: DataModel[] = [];
+  elixirsList$: Observable<DataModel[]> = new Observable<DataModel[]>(); // Initialize the property
 
-  constructor(private store: Store) {
+  constructor(private store: Store<CardsState>) {
+    this.elixirsList$ = this.store.select(state => state.elixirsList);
   }
-
 
   ngOnInit() {
-  }
-
-  onShowDivClick() {
-    this.store.dispatch(showDetailsInSingleCard());
+    // Set the initial value of the elixirsList
+    this.store.dispatch(CardsActions.updateElixirsList({ elixirsList: this.initialElixirsList }));
   }
 }
