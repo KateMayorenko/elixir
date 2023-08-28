@@ -9,9 +9,4 @@ import {Store} from "@ngrx/store";
 })
 export class AppComponent {
   title = 'ui';
-
-  // @ts-ignore
-  detailsVisible$ = this.store.select((state: { singleCard: ComponentSingleCardState }) => state.singleCard.detailsVisible) ;
-
-  constructor(private store: Store) {}
 }

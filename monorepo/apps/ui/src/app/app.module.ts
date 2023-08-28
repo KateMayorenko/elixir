@@ -9,9 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { DetailedPageComponent } from './detailed-page/detailed-page.component';
 import {FormsModule} from "@angular/forms";
 import {StoreModule} from "@ngrx/store";
-import {CardsModule} from "./cards/store/cards.module";
-import {EffectsModule} from "@ngrx/effects";
-import {CardsEffects} from "./cards/store/cards.effects";
+import {cardReducer} from "./cards/store/cards.reducer";
 
 @NgModule({
   declarations: [
@@ -25,9 +23,7 @@ import {CardsEffects} from "./cards/store/cards.effects";
     BrowserModule,
     RouterModule.forRoot(appRoutes, {initialNavigation: 'enabledBlocking'}),
     FormsModule,
-    StoreModule.forRoot(),
-    CardsModule,
-    EffectsModule.forRoot([CardsEffects]),
+    StoreModule.forRoot({ cards: cardReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent],

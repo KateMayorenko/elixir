@@ -10,7 +10,6 @@ import {DataModel} from "@monorepo/data-models";
 export class DetailedPageComponent {
 
   @Input() elixir: DataModel = {name: '', ingredient: '', effect: '', sideEffect: ''};
-  @Input() detailsVisible = false;
 
   constructor() {}
 

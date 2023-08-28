@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Store} from "@ngrx/store";
-import * as CardsActions from '../cards/store/cards.actions';
+import {filterCards} from "../cards/store/cards.actions";
 
 @Component({
   selector: 'app-search',
@@ -9,12 +9,11 @@ import * as CardsActions from '../cards/store/cards.actions';
 })
 export class SearchComponent {
 
-  searchText = '';
-
   constructor(private store: Store) {}
 
-  onSearchTextChanged(input: string) {
-    this.store.dispatch(CardsActions.setSearchText({ searchText: input }));
+  onSearch(event: any) {
+    const name = event.target.value;
+    this.store.dispatch(filterCards({ name }));
   }
 }
 
