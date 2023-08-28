@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {ComponentSingleCardState} from "./cards/single-card/single-card.reducer";
-import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-root',

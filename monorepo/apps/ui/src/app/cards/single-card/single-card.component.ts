@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {DataModel} from "@monorepo/data-models";
-import {Store} from "@ngrx/store";
-import {showDetailsInSingleCard} from "./single-card.actions";
 
 @Component({
   selector: 'app-single-card',
